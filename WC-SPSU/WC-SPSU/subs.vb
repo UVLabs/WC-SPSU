@@ -5,11 +5,8 @@ Module subs
         Dim conn As New MySqlConnection
         Dim cmd As New MySqlCommand
 
-
         conn = New MySqlConnection
         conn.ConnectionString = My.Settings.DatabaseConnection
-
-
 
         Dim SDA As New MySqlDataAdapter
         Dim dbDataSet As New DataTable
@@ -21,7 +18,7 @@ Module subs
         Try
             conn.Open()
             cmd.CommandText = "SELECT
-	 T.name, O.object_id, P.ID AS Product_id, P.post_title AS Product_name, PM1.meta_value AS SKU, PM2.meta_value AS STOCK
+	 P.ID AS Product_ID, P.post_title AS Product_Name, PM1.meta_value AS SKU, PM2.meta_value AS STOCK
 
 FROM
 
@@ -43,8 +40,6 @@ FROM
 		(PM2.post_id  = P.ID) AND
 		(PM2.meta_key = '_stock_status')
 
-
-		
 where P.post_type = 'product'"
             SDA.SelectCommand = cmd
             SDA.Fill(dbDataSet)

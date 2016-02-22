@@ -9,10 +9,14 @@
 
             auth.Show()
 
-
             'MessageBox.Show("server=" & host & ";user id=" & user & ";database=" & database & ";password=" & password)
         Else
+
             load_stock()
+            Me.dgv_main.Columns("Product_ID").HeaderText = "Product ID"
+            Me.dgv_main.Columns("Product_Name").HeaderText = "Title"
+            ' dgv_main.Columns(1).Width = 500
+            dgv_main.AutoResizeColumns()
         End If
 
         Label1.Text = My.Settings.DatabaseConnection
