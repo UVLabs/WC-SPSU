@@ -19,6 +19,7 @@ Public Class auth
 
         My.Settings.DatabaseConnection = "server=" & host & ";user id=" & user & ";database=" & database & ";Password=" & password
         My.Settings.Save()
+        MsgBox("Settings Saved")
         'Beep()
         ' My.Settings.Reload()
         ' Me.Hide()

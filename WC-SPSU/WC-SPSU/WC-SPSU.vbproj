@@ -104,6 +104,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="stock_status_changes.vb" />
+    <Compile Include="subs.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="auth.resx">
