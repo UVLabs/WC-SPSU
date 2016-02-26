@@ -11,10 +11,11 @@
 
             'MessageBox.Show("server=" & host & ";user id=" & user & ";database=" & database & ";password=" & password)
         Else
-
+            'add try statement
+            'Me.dgv_main.Rows[0]
             load_stock()
-            Me.dgv_main.Columns("Product_ID").HeaderText = "Product ID"
-            Me.dgv_main.Columns("Product_Name").HeaderText = "Title"
+            'dgv_main.AutoGenerateColumns = False
+
             ' dgv_main.Columns(1).Width = 500
             dgv_main.AutoResizeColumns()
         End If
@@ -23,4 +24,31 @@
     End Sub
 
 
+
+    Private Sub dgv_main_CellEnter(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgv_main.CellEnter
+        'ref= http://www.vbforums.com/showthread.php?476221-RESOLVED-2005-combobox-in-datagridview-single-click
+
+        Dim dgv As DataGridView = CType(sender, DataGridView)
+
+        If dgv(e.ColumnIndex, e.RowIndex).EditType IsNot Nothing Then
+
+            If dgv(e.ColumnIndex, e.RowIndex).EditType.ToString() = "System.Windows.Forms.DataGridViewComboBoxEditingControl" Then
+
+                SendKeys.Send("{F4}")
+
+            End If
+
+        End If
+
+    End Sub
+
+    Private Sub btn_load_more_stock_Click(sender As Object, e As EventArgs) Handles btn_load_more_stock.Click
+        load_more_stock()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'Label1.Text = last_row()
+
+        last_row()
+    End Sub
 End Class

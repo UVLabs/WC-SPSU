@@ -25,6 +25,8 @@ Partial Class main
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.dgv_main = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btn_load_more_stock = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.dgv_main, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -45,13 +47,13 @@ Partial Class main
         '
         'dgv_main
         '
+        Me.dgv_main.AllowUserToAddRows = False
         Me.dgv_main.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgv_main.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgv_main.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_main.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgv_main.Location = New System.Drawing.Point(3, 3)
         Me.dgv_main.Name = "dgv_main"
-        Me.dgv_main.ReadOnly = True
         Me.dgv_main.Size = New System.Drawing.Size(754, 410)
         Me.dgv_main.TabIndex = 0
         '
@@ -64,11 +66,31 @@ Partial Class main
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Label1"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(206, 509)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'btn_load_more_stock
+        '
+        Me.btn_load_more_stock.Location = New System.Drawing.Point(372, 472)
+        Me.btn_load_more_stock.Name = "btn_load_more_stock"
+        Me.btn_load_more_stock.Size = New System.Drawing.Size(75, 23)
+        Me.btn_load_more_stock.TabIndex = 3
+        Me.btn_load_more_stock.Text = "Load More"
+        Me.btn_load_more_stock.UseVisualStyleBackColor = True
+        '
         'main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(784, 561)
+        Me.Controls.Add(Me.btn_load_more_stock)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Name = "main"
@@ -83,4 +105,6 @@ Partial Class main
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents dgv_main As DataGridView
     Friend WithEvents Label1 As Label
+    Friend WithEvents Button1 As Button
+    Friend WithEvents btn_load_more_stock As Button
 End Class
