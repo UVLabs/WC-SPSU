@@ -43,12 +43,17 @@
     End Sub
 
     Private Sub btn_load_more_stock_Click(sender As Object, e As EventArgs) Handles btn_load_more_stock.Click
-        load_more_stock()
+        Try
+            load_more_stock()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         'Label1.Text = last_row()
 
-        last_row()
+        last_row_product_ID()
     End Sub
 End Class

@@ -1,6 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Module subs
     Public dgv_main = main.dgv_main
+    Dim last_row_product_ID_value As String = 0
     Public Sub load_stock()
         Dim conn As New MySqlConnection
         Dim cmd As New MySqlCommand
@@ -40,7 +41,7 @@ FROM
 		(PM2.post_id  = P.ID) AND
 		(PM2.meta_key = '_stock_status')
 
-where P.post_type = 'product' ORDER BY P.ID desc"
+where P.post_type = 'product' ORDER BY P.ID desc limit 1"
             SDA.SelectCommand = cmd
             SDA.Fill(dbDataSet)
             bSource.DataSource = dbDataSet
@@ -85,7 +86,8 @@ where P.post_type = 'product' ORDER BY P.ID desc"
 
         Dim bSource As New BindingSource
         cmd.Connection = conn
-
+        last_row_product_ID_value = 0
+        last_row_product_ID()
 
         Try
             conn.Open()
@@ -112,8 +114,9 @@ FROM
 		(PM2.post_id  = P.ID) AND
 		(PM2.meta_key = '_stock_status')
 
-where P.post_type = 'product' AND P.ID < 80 order by P.ID desc limit 2"
+where P.post_type = 'product' AND P.ID < '" & last_row_product_ID_value & "' order by P.ID desc limit 3"
             SDA.SelectCommand = cmd
+
             SDA.Fill(dbDataSet)
             bSource.DataSource = dbDataSet
             dgv_main.DataSource = bSource
@@ -144,9 +147,14 @@ where P.post_type = 'product' AND P.ID < 80 order by P.ID desc limit 2"
 
     End Sub
 
-    Public Sub last_row()
-        Dim last_row_product_ID As String = dgv_main.Rows(dgv_main.RowCount - 1).Cells(0).value.ToString()
-        main.Label1.Text = last_row_product_ID
+    Public Sub last_row_product_ID()
+        Try
+            last_row_product_ID_value = dgv_main.Rows(dgv_main.RowCount - 1).Cells(0).value.ToString()
+            main.Label1.Text = last_row_product_ID_value
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
     End Sub
 
 
