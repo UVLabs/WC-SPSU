@@ -1,2 +1,2 @@
 # WC-SPSU
-WooCommerce Simple Product Update Desktop
+WooCommerce Simple Product Stock Update Desktop Application
