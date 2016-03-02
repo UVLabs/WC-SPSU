@@ -32,7 +32,8 @@ Partial Class auth
         Me.lbl_db_pw = New System.Windows.Forms.Label()
         Me.btn_saveCreds = New System.Windows.Forms.Button()
         Me.btn_testCreds = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.lbl_db_table_prefix = New System.Windows.Forms.Label()
+        Me.tb_db_table_prefix = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'tb_dbHost
@@ -47,14 +48,14 @@ Partial Class auth
         Me.tb_dbPassword.Location = New System.Drawing.Point(135, 82)
         Me.tb_dbPassword.Name = "tb_dbPassword"
         Me.tb_dbPassword.Size = New System.Drawing.Size(193, 20)
-        Me.tb_dbPassword.TabIndex = 1
+        Me.tb_dbPassword.TabIndex = 2
         '
         'tb_dbUsername
         '
         Me.tb_dbUsername.Location = New System.Drawing.Point(135, 56)
         Me.tb_dbUsername.Name = "tb_dbUsername"
         Me.tb_dbUsername.Size = New System.Drawing.Size(193, 20)
-        Me.tb_dbUsername.TabIndex = 2
+        Me.tb_dbUsername.TabIndex = 1
         '
         'lbl_host
         '
@@ -88,7 +89,7 @@ Partial Class auth
         Me.tb_dbName.Location = New System.Drawing.Point(135, 108)
         Me.tb_dbName.Name = "tb_dbName"
         Me.tb_dbName.Size = New System.Drawing.Size(193, 20)
-        Me.tb_dbName.TabIndex = 5
+        Me.tb_dbName.TabIndex = 3
         '
         'lbl_db_pw
         '
@@ -101,37 +102,45 @@ Partial Class auth
         '
         'btn_saveCreds
         '
-        Me.btn_saveCreds.Location = New System.Drawing.Point(253, 134)
+        Me.btn_saveCreds.Location = New System.Drawing.Point(253, 164)
         Me.btn_saveCreds.Name = "btn_saveCreds"
         Me.btn_saveCreds.Size = New System.Drawing.Size(75, 23)
-        Me.btn_saveCreds.TabIndex = 8
+        Me.btn_saveCreds.TabIndex = 6
         Me.btn_saveCreds.Text = "Save"
         Me.btn_saveCreds.UseVisualStyleBackColor = True
         '
         'btn_testCreds
         '
-        Me.btn_testCreds.Location = New System.Drawing.Point(135, 134)
+        Me.btn_testCreds.Location = New System.Drawing.Point(135, 164)
         Me.btn_testCreds.Name = "btn_testCreds"
         Me.btn_testCreds.Size = New System.Drawing.Size(75, 23)
-        Me.btn_testCreds.TabIndex = 9
+        Me.btn_testCreds.TabIndex = 5
         Me.btn_testCreds.Text = "Test"
         Me.btn_testCreds.UseVisualStyleBackColor = True
         '
-        'Button1
+        'lbl_db_table_prefix
         '
-        Me.Button1.Location = New System.Drawing.Point(334, 59)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 10
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.lbl_db_table_prefix.AutoSize = True
+        Me.lbl_db_table_prefix.Location = New System.Drawing.Point(25, 137)
+        Me.lbl_db_table_prefix.Name = "lbl_db_table_prefix"
+        Me.lbl_db_table_prefix.Size = New System.Drawing.Size(63, 13)
+        Me.lbl_db_table_prefix.TabIndex = 12
+        Me.lbl_db_table_prefix.Text = "Table Prefix"
+        '
+        'tb_db_table_prefix
+        '
+        Me.tb_db_table_prefix.Location = New System.Drawing.Point(135, 134)
+        Me.tb_db_table_prefix.Name = "tb_db_table_prefix"
+        Me.tb_db_table_prefix.Size = New System.Drawing.Size(75, 20)
+        Me.tb_db_table_prefix.TabIndex = 4
         '
         'auth
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(410, 175)
-        Me.Controls.Add(Me.Button1)
+        Me.ClientSize = New System.Drawing.Size(410, 199)
+        Me.Controls.Add(Me.lbl_db_table_prefix)
+        Me.Controls.Add(Me.tb_db_table_prefix)
         Me.Controls.Add(Me.btn_testCreds)
         Me.Controls.Add(Me.btn_saveCreds)
         Me.Controls.Add(Me.lbl_db_pw)
@@ -142,8 +151,10 @@ Partial Class auth
         Me.Controls.Add(Me.tb_dbUsername)
         Me.Controls.Add(Me.tb_dbPassword)
         Me.Controls.Add(Me.tb_dbHost)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "auth"
-        Me.Text = "auth"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Database Settings"
         Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -160,5 +171,6 @@ Partial Class auth
     Friend WithEvents lbl_db_pw As Label
     Friend WithEvents btn_saveCreds As Button
     Friend WithEvents btn_testCreds As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents lbl_db_table_prefix As Label
+    Friend WithEvents tb_db_table_prefix As TextBox
 End Class

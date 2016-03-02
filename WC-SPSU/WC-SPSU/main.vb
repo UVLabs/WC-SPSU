@@ -2,10 +2,11 @@
     Public changelist As New List(Of stock_status_changes)
 
     Private Sub main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'My.Settings.DatabaseConnection = ""
-        ' My.Settings.Save()
+        My.Settings.DatabaseConnection = ""
+        My.Settings.TablePrefix = ""
+        My.Settings.Save()
 
-        If String.IsNullOrEmpty(My.Settings.DatabaseConnection) Then
+        If String.IsNullOrEmpty(My.Settings.DatabaseConnection) Or String.IsNullOrEmpty(My.Settings.TablePrefix) Then
 
             auth.Show()
 
@@ -20,7 +21,7 @@
             dgv_main.AutoResizeColumns()
         End If
 
-        Label1.Text = My.Settings.DatabaseConnection
+        'Label1.Text = My.Settings.DatabaseConnection
     End Sub
 
 
@@ -42,7 +43,7 @@
 
     End Sub
 
-    Private Sub btn_load_more_stock_Click(sender As Object, e As EventArgs) Handles btn_load_more_stock.Click
+    Private Sub btn_load_more_stock_Click(sender As Object, e As EventArgs) Handles btn_pull_stock.Click
         Try
             load_more_stock()
         Catch ex As Exception
@@ -51,9 +52,9 @@
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         'Label1.Text = last_row()
-
-        last_row_product_ID()
+        load_stock()
+        'last_row_product_ID()
     End Sub
 End Class

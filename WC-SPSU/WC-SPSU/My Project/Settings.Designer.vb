@@ -65,6 +65,18 @@ Namespace My
                 Me("DatabaseConnection") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property TablePrefix() As String
+            Get
+                Return CType(Me("TablePrefix"),String)
+            End Get
+            Set
+                Me("TablePrefix") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
